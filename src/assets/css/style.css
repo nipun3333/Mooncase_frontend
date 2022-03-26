@@ -13,7 +13,7 @@
 }
 
 body {
-  background: #292929;
+  background: #18191D;
   color: white;
   font-family: Lato;
 }
@@ -173,25 +173,25 @@ body {
     transform: translateX(0.125em);
   }
 }
-.hov-dark {
+.hov-dark-pur {
   border: #bb86fc solid 1px;
   background-color: #bb86fc;
   color: black;
 }
 
-.hov-dark:hover {
+.hov-dark-pur:hover {
   border: #bb86fc solid 1px;
   background-color: transparent;
   color: white;
 }
 
-.hov-light {
+.hov-dark-green1 {
   border: #03dac5 solid 1px;
   background-color: #03dac5;
   color: black;
 }
 
-.hov-light:hover {
+.hov-dark-green1:hover {
   border: #03dac5 solid 1px;
   background-color: transparent;
   color: white;
@@ -199,4 +199,24 @@ body {
 
 .company-box {
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+.hov-dark-green2 {
+  border: #017374 solid 1px;
+  background-color: #017374;
+  color: white;
+}
+
+.hov-dark-green2:hover {
+  border: #017374 solid 1px;
+  background-color: transparent;
+  color: white;
+}
+
+.bucket-box{
+  background-color: #1D2024;
+}
+
+.bucket-card{
+  background-color: #1D2024;
 }

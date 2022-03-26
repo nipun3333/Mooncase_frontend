@@ -91,31 +91,21 @@ export default function Header() {
   return (
     <>
       <div className="ml-auto">
-        <div className="">
-          <div className="flex justify-between">
+        <div className="flex gap-8 justify-end">
+          <div>
             <button
-              className="cursor-pointer p-3 rounded-md hov-dark bg-purple01"
-              onClick={() => navigate("/")}
+              className="cursor-pointer p-3 rounded-md hov-dark-pur"
+              onClick={() => navigate("/bucketlist")}
             >
-              Home
+              Bucket list
             </button>
-
-            <div className="flex justify-between gap-8">
-              <button
-                className="cursor-pointer p-3 rounded-md hov-dark bg-purple01"
-                onClick={() => navigate("/bucketlist")}
-              >
-                Bucket list
-              </button>
-
-              <button
-                className="cursor-pointer p-3 rounded-md hov-light"
-                onClick={() => HandleConnect()}
-              >
-                Connect
-              </button>
-            </div>
           </div>
+          <button
+            className="cursor-pointer p-3 rounded-md hov-dark-green1"
+            onClick={() => HandleConnect()}
+          >
+            Connect
+          </button>
         </div>
       </div>
     </>

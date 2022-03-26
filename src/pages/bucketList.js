@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Bucket } from "../components/bucket";
-import img from "../assets/images/ImportanceofCorporateImage.jpg";
 import Layout from "../components/layout/Layout";
+import image from "./../assets/images/ImportanceofCorporateImage.jpg";
 
 export const BucketList = () => {
   const [bucketList, setBucketList] = useState([]);
@@ -12,9 +12,11 @@ export const BucketList = () => {
     for (var i = 0; i < 5; i++) {
       l.push({
         id: i,
-        name: "Stock" + i,
-        desc: "Great description dsaf adwsfwwe wef ew",
+        name: "Crypto" + i,
+        desc: "Great description dsaf adwsfwwe wef ew Great description dsaf adwsfwwe wef ew Great description dsaf adwsfwwe wef ew Great description dsaf adwsfwwe wef ew Great description dsaf adwsfwwe wef ew",
         totalAvailableCurrencies: (i + 1) * 10,
+        username: "user",
+        type: "nft",
       });
     }
     setBucketList(l);
@@ -23,32 +25,43 @@ export const BucketList = () => {
   // All cards
   return (
     <Layout>
-      <div className="grid grid-cols-3 gap-3 p-3">
+      <div className="grid grid-cols-3 gap-5 p-3 mx-10">
         {bucketList &&
           bucketList.map((bucket) => {
             return (
               <>
-                {/* <div
-                className="cursor-pointer p-3 justify-center items-center rounded-lg border-2 "
-                onClick={() => navigate("/bucket")}
-              >
-                <p>{bucket.name}</p>
-                <p>{bucket.desc}</p>
-                <p>{bucket.totalAvailableCurrencies}</p>
-              </div> */}
-                {/* <a> */}
                 <div
-                  className="data-card cursor-pointer"
-                  onClick={() => navigate("/bucket")}
+                  className="bucket-card p-8 rounded-lg cursor-pointer"
+                  onClick={() => {
+                    navigate("/bucket/1");
+                  }}
                 >
-                  {/* <h3>270</h3> */}
-                  <img src={img} alt="" />
-                  <h3>{bucket.name}</h3>
-                  <p>{bucket.desc}</p>
-                  {/* <p>Aenean lacinia bibendum nulla sed consectetur.</p> */}
-                  <span class="link-text">Click to View</span>
+                  <div className="flex justify-center flex-col">
+                    <div className="flex justify-between mb-4">
+                      <div>
+                        <img
+                          src={image}
+                          alt=""
+                          width={"80px"}
+                          height={"80px"}
+                        />
+                      </div>
+                      <div>
+                        <p
+                          className="p-2 mx-auto bg-gray-800 rounded-md"
+                          style={{ color: "#bb86fc" }}
+                        >
+                          {bucket.type}
+                        </p>
+                      </div>
+                    </div>
+                    <h1 className="text-xl text-white font-semibold">
+                      {bucket.name}
+                    </h1>
+                    <p className="text-ss text-gray-400">{bucket.username}</p>
+                    <p className="text-xs mt-2">{bucket.desc}</p>
+                  </div>
                 </div>
-                {/* </a> */}
               </>
             );
           })}

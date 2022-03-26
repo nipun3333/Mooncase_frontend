@@ -118,7 +118,7 @@ export default function GraphComp() {
       margin={{
         top: 20,
         right: 30,
-        left: 20,
+        // left: 20,
         bottom: 10,
       }}
     >
@@ -127,7 +127,7 @@ export default function GraphComp() {
       <YAxis />
       <Tooltip />
       <Legend />
-      <Line type="monotone" dataKey="NFT" stroke="red">
+      <Line type="monotone" dataKey="NFT" stroke="#7AC231">
         {/* <LabelList content={<CustomizedLabel />} /> */}
       </Line>
       {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
