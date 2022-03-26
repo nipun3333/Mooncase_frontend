@@ -13,7 +13,7 @@
 }
 
 body {
-  background: #191e24;
+  background: #292929;
   color: white;
   font-family: Lato;
 }
@@ -77,3 +77,31 @@ body {
   -moz-appearance: textfield;
 }
 
+.hov-dark{
+  border: #BB86FC solid 1px;
+  background-color: #BB86FC;
+  color: black;
+}
+
+.hov-dark:hover{
+  border: #BB86FC solid 1px;
+  background-color: transparent;
+  color: white;
+}
+
+.hov-light{
+
+  border: #03DAC5 solid 1px;
+  background-color: #03DAC5;
+  color: black;
+}
+
+.hov-light:hover{
+  border: #03DAC5 solid 1px;
+  background-color: transparent;
+  color: white;
+}
+
+.company-box{
+  background-color: rgba(0,0,0,0.1);
+}

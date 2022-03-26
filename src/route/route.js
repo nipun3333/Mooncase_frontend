@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Bucket } from "../components/bukect";
+import { Bucket } from "../components/bucket";
 import { About } from "../pages/about";
 import { BucketList } from "../pages/bucketList";
 

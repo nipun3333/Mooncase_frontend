@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Bucket } from "../components/bukect";
+import Layout from "../components/layout/Layout";
+
 
 export const BucketList = () => {
   const [bucketList, setBucketList] = useState([]);
@@ -20,7 +21,7 @@ export const BucketList = () => {
 
   // All cards
   return (
-    <>
+    <Layout>
       <div className="grid grid-cols-3 gap-3 p-3">
         {bucketList &&
           bucketList.map((bucket) => {
@@ -36,6 +37,6 @@ export const BucketList = () => {
             );
           })}
       </div>
-    </>
+    </Layout>
   );
 };
