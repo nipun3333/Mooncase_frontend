@@ -1,0 +1,19 @@
+
+.modal {
+  position: absolute;
+  overflow-y: auto;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  background-color: #18191D;
+  border-radius: 16px;
+  min-height: 400px;
+}
+
+.modal:focus {
+  outline: none;
+}
