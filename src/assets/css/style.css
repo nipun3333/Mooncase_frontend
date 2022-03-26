@@ -1,0 +1,79 @@
+/*
+ Not Working
+@import url("http://fonts.cdnfonts.com/css/circular-std%27");
+*/
+
+/*  Using this fonts temporarily */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #191e24;
+  color: white;
+  font-family: Lato;
+}
+
+.bg-copper {
+  background: url(../images/Union.svg) center center no-repeat;
+}
+
+/*  Using these classes for custom colors as the config file is not working as expected */
+.bg-app {
+  background-color: #191e24;
+}
+
+.bg-dark {
+  background-color: #07080a;
+}
+
+.bg-dark-auction-create {
+  background-color: #101215;
+}
+
+.bg-header {
+  background-color: #121519;
+}
+
+.border-color {
+  border-color: #656565;
+}
+
+.text-primary {
+  color: #f70fe8;
+}
+
+.test {
+  background-color: red;
+}
+
+.text-red {
+  color: #ff4878;
+}
+
+.border-primary {
+  border-color: #f70fe8;
+}
+
+.bg-primary {
+  background-color: #f70fe8;
+}
+
+.border-create-auction {
+  border-color: #c4c4c4;
+}
+
+.numberInput::-webkit-outer-spin-button,
+.numberInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.numberInput {
+  -moz-appearance: textfield;
+}
+
