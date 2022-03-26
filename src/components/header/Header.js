@@ -1,4 +1,3 @@
-
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import connectWeb3 from "../../utils/WallectConnectModal";
@@ -11,7 +10,6 @@ import {
 import SwitchNetwork from "../../redux/Services/SwitchNetwork";
 import useWeb3 from "../../utils/useWeb3";
 import { useNavigate } from "react-router-dom";
-
 
 export default function Header() {
   const navigate = useNavigate();
@@ -88,53 +86,41 @@ export default function Header() {
 
   useEffect(() => {
     console.log("switchWarning", switchWarning);
-  }, [switchWarning])
+  }, [switchWarning]);
 
   return (
     <>
-      <div className="w-1/4 ml-auto">
-        <div className="flex gap-8 justify-end">
-          <div>
-            <button className="cursor-pointer p-3 rounded-md hov-dark bg-purple01" onClick={() => navigate("/bucketlist")}>Bucket list</button>
+      <div className="ml-auto">
+        <div className="">
+          <div className="flex justify-between">
+            <button
+              className="cursor-pointer p-3 rounded-md hov-dark bg-purple01"
+              onClick={() => navigate("/")}
+            >
+              Home
+            </button>
+
+            <div className="flex justify-between gap-8">
+              <button
+                className="cursor-pointer p-3 rounded-md hov-dark bg-purple01"
+                onClick={() => navigate("/bucketlist")}
+              >
+                Bucket list
+              </button>
+
+              <button
+                className="cursor-pointer p-3 rounded-md hov-light"
+                onClick={() => HandleConnect()}
+              >
+                Connect
+              </button>
+            </div>
           </div>
-          <button className="cursor-pointer p-3 rounded-md hov-light" onClick={() => HandleConnect()}>Connect</button>
         </div>
       </div>
     </>
-  )
+  );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import { Button } from "../styledComponents/Buttons/index";
 // import SelectInput from "./SelectInput";
@@ -302,7 +288,3 @@ export default function Header() {
 // }
 
 // export default connect()(Header);
-
-
-
-
