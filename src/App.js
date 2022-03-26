@@ -1,6 +1,7 @@
 import React from "react";
 import PublicRoute from "./route/route";
 import "./assets/css/style.css";
+
 class App extends React.Component {
   render() {
     return (

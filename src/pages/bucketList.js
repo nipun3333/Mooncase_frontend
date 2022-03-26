@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Bucket } from "../components/bukect";
+import { Bucket } from "../components/bucket";
 import img from "../assets/images/ImportanceofCorporateImage.jpg";
+import Layout from "../components/layout/Layout";
+
 export const BucketList = () => {
   const [bucketList, setBucketList] = useState([]);
   const navigate = useNavigate();
@@ -20,8 +22,8 @@ export const BucketList = () => {
 
   // All cards
   return (
-    <>
-      <div className="grid grid-cols-3 gap-3 p-3 page-contain">
+    <Layout>
+      <div className="grid grid-cols-3 gap-3 p-3">
         {bucketList &&
           bucketList.map((bucket) => {
             return (
@@ -51,6 +53,6 @@ export const BucketList = () => {
             );
           })}
       </div>
-    </>
+    </Layout>
   );
 };

@@ -1,17 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Layout from "../components/layout/Layout";
+
 export const About = () => {
   const navigate = useNavigate();
   return (
+    <Layout>
+
     <div className="p-10">
-      <div className="flex justify-between ">
-        <div className="cursor-pointer" onClick={() => navigate("/bucketlist")}>
-          Bucket list
-        </div>
-        <div className="cursor-pointer">Connect</div>
-      </div>
-      <div></div>
-      <div></div>
+  
     </div>
+    </Layout>
   );
 };

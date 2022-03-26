@@ -7,8 +7,10 @@ class layout extends Component {
   render() {
     return (
       <div className="">
-        <Header />
-        <div className="pb-12">{this.props.children}</div>
+        <div className="p-10">
+          <Header />
+          <div className="pb-12 mt-8">{this.props.children}</div>
+        </div>
         <Footer />
       </div>
     );

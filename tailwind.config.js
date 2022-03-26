@@ -12,6 +12,8 @@ module.exports = {
         dark300: "#101215",
         // Header Background
         dark400: "#121519",
+        // Button color
+        purple01: "#BB86FC"
         
       },
       borderColor: "#656565",

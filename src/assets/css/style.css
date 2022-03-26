@@ -13,7 +13,7 @@
 }
 
 body {
-  background: #191e24;
+  background: #292929;
   color: white;
   font-family: Lato;
 }
@@ -172,4 +172,31 @@ body {
   100% {
     transform: translateX(0.125em);
   }
+}
+.hov-dark {
+  border: #bb86fc solid 1px;
+  background-color: #bb86fc;
+  color: black;
+}
+
+.hov-dark:hover {
+  border: #bb86fc solid 1px;
+  background-color: transparent;
+  color: white;
+}
+
+.hov-light {
+  border: #03dac5 solid 1px;
+  background-color: #03dac5;
+  color: black;
+}
+
+.hov-light:hover {
+  border: #03dac5 solid 1px;
+  background-color: transparent;
+  color: white;
+}
+
+.company-box {
+  background-color: rgba(0, 0, 0, 0.1);
 }
