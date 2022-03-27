@@ -170,7 +170,7 @@ export default function BuyBucketModal({ modalstate, setModalstate, data }) {
           0,
           tokens["WETH"].address,
           data[i].contract,
-          web3.utils.toHex(convertUnit(tokenAmount*parseFloat(data[i].weight), "multiply", tokens[data[i].symbol].decimals-2).toString()),
+          web3.utils.toHex(convertUnit(tokenAmount*parseFloat(data[i].weight), "multiply", 18-2).toString()),
           "0x"
         ]
         console.log(tokenAmount, parseFloat(data[i].weight), tokens[data[i].symbol].decimals-2, "Token Amount");

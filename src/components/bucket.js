@@ -8,6 +8,7 @@ import { getCaseDetailsApi } from "../api/CaseDetailsApi";
 import { useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import BuyBucketModal from "../pages/buyModal";
+import WithdrawModal from "../pages/withdrawModal";
 
 export const Bucket = (props) => {
   const web3 = useWeb3();
@@ -24,6 +25,7 @@ export const Bucket = (props) => {
   const [tab, setTab] = useState("overview");
   const [coinDetail, setCoinDetail] = useState([]);
   const [openBuyModal, setOpenBuyModal] = useState(false);
+  const [openWithdrawModal, setOpenWithdrawModal] = useState(false);
   const fetchCaseDetails = async () => {
     const result = await getCaseDetailsApi(id);
     if (result === false) {
@@ -64,6 +66,11 @@ export const Bucket = (props) => {
             setModalstate={setOpenBuyModal}
             data={bucket?.coins}
           />
+          <WithdrawModal
+            modalstate={openWithdrawModal}
+            setModalstate={setOpenWithdrawModal}
+            // data={bucket?.coins}
+          />
         </div>
         <div
           className="p-5 company-box rounded-xl"
@@ -97,6 +104,9 @@ export const Bucket = (props) => {
                   <button
                     className="cursor-pointer text-base p-2 rounded-md hov-dark-green2 w-full"
                     // style={{ backgroundColor: "#7AC131" }}
+                    onClick={() => {
+                      setOpenWithdrawModal(!openWithdrawModal);
+                    }}
                   >
                     Withdraw
                   </button>

@@ -22,5 +22,20 @@ export const tokens = {
         "logo" : '',
         'address': '0xD1B98B6607330172f1D991521145A22BCe793277',
         'decimals' : 8,
+    },
+
+
+    'aDAI' : {
+      address: "0xdCf0aF9e59C002FA3AA091a46196b37530FD48a8",
+    },
+    'aUSDT' : {
+      address: "0xFF3c8bc103682FA918c954E84F5056aB4DD5189d",
+    },
+    'aBUSD' : {
+      address: "0xfe3E41Db9071458e39104711eF1Fa668bae44e85",
+    },
+    'aWBTC': {
+      address: '0x62538022242513971478fcC7Fb27ae304AB5C29F',
     }
+
 }
