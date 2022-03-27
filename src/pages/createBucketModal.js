@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from 'react'
+import { getCasesApi } from '../api/GetCases';
 import { DownArrow } from '../assets/icon';
 import ModalLayout from '../modal/modal'
+import { toast, ToastContainer } from "react-toastify";
+import { createCaseApi } from '../api/CreateCaseApi';
+import { useSelector } from 'react-redux';
+import useWeb3 from '../utils/useWeb3';
+import { tokens } from '../utils/tokens';
 
 export default function CreateBucketModal({ modalstate, setModalstate }) {
+
+    const web3 = useWeb3();
+
     const [currencyDropDown, setCurrencyDropDown] = useState(false);
     const [currencies, setCurrencies] = useState([
-        "C1", "C2", "C3", "C4"
+        "DAI", "USDC"
     ])
     const [currTotalFlag, setCurrTotalFlag] = useState(false);
     const [checkSum, setCheckSum] = useState(0);
@@ -21,6 +30,67 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
         setCurrencies(currencies.filter((currancy) => currancy != curr));
         setFinCurr([...finCurr, { "curr": curr, per: 0 }]);
     }
+
+    const handleCreateBucket = async () => {
+        console.log("BucketData", bucketData);
+        console.log("FinCurr", finCurr);
+        let account = '';
+        await web3.eth.getAccounts().then((accounts) => {
+            
+            account = accounts[0];
+          });
+        
+          if(account === ''){
+              toast.error("Please unlock your wallet to create a bucket");
+              return;
+          }
+          let coins = [];
+          for (let i = 0; i < finCurr.length; i++) {
+            coins.push({
+                'contract' : tokens[finCurr[i].curr].address,
+                'symbol' : finCurr[i].curr,
+                'weight' : finCurr[i].per
+            })
+            
+          }
+
+
+
+
+        const data = {
+            "creatorAddress": account,
+            "logoLink": "http://localhost:8000/image",
+            "networkType": "3",
+            "coins": coins,
+            "caseDescription": bucketData.desc,
+            "bucketName": bucketData.name,
+            "type": bucketData.type
+          }
+
+        const result = await createCaseApi(data);
+        if(result === false) {
+            toast.warn(`Unable to Create Bucket's at the moment`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              });
+        }else {
+            toast.success(`Bucket Created Successfully`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
+        }
+    }
+
 
     const handlePerChange = (curr, val) => {
         setFinCurr(finCurr.map((cur) => {
@@ -232,6 +302,7 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
                 <div>
                 </div>
             </div>
+            <ToastContainer toastStyle={{ backgroundColor: "#000" }} />
         </ModalLayout>
     )
 }

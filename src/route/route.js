@@ -14,7 +14,7 @@ function PublicRoute() {
           <Route path="/" element={<About />} />
           <Route path="/bucketlist" element={<BucketList />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/bucket" element={<Bucket />} />
+          <Route path="/bucket/:id" element={<Bucket />} />
         </Routes>
       </BrowserRouter>
     </div>

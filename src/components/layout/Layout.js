@@ -11,7 +11,7 @@ class layout extends Component {
           <Header />
           <div className="pb-12 mt-8">{this.props.children}</div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }
