@@ -8,7 +8,6 @@ const convertUnit = (number, action, decimals) => {
             if(!BigNumber.isBigNumber(number)) {
                 number = new BigNumber(number);
             }
-            // console.log("number", number.toString(), "temp", temp.toString());
             return number.dividedBy(temp);
         case "multiply":
             temp = temp.exponentiatedBy(decimals);

@@ -34,10 +34,8 @@ const SliderInput = (props) => {
   useEffect(() => {
     if (props.leftToken) {
       if(props.leftToken.icon !== '') {
-        // console.log(props.leftToken, "HEY")
         setLeftToken(props.leftToken);
       }else{
-        // console.log(props.leftToken, "HEY")
         props.leftToken.icon = '';
         setLeftToken(props.leftToken)
       }

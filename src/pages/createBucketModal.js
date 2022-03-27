@@ -29,8 +29,6 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
   };
 
   const handleCreateBucket = async () => {
-    console.log("BucketData", bucketData);
-    console.log("FinCurr", finCurr);
     let account = "";
     await web3.eth.getAccounts().then((accounts) => {
       account = accounts[0];
@@ -71,6 +69,7 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
         progress: undefined,
       });
     } else {
+        window.location.reload();
       toast.success(`Bucket Created Successfully`, {
         position: "top-right",
         autoClose: 5000,
@@ -93,7 +92,6 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
         }
       })
     );
-    console.log(curr, val);
   };
   useEffect(() => {
     if (
@@ -119,15 +117,12 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
     } else {
       setCurrTotalFlag(false);
     }
-    console.log(ans);
   }, [finCurr]);
 
-  console.log(currTotalFlag, activateButton, finCurr);
 
   const handleChange = (name, value) => {
     setBucketData({ ...bucketData, [name]: value });
   };
-  console.log(bucketData, checkSum);
 
   return (
     <ModalLayout modalstate={modalstate} setModalstate={setModalstate}>
@@ -135,7 +130,7 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
         <div className="p-10">
           <div>
             <div className="flex items-center justify-between mb-4">
-              <div className="font-bold text-xl">Add Bucket</div>
+              <div className="font-bold text-2xl">Add Bucket</div>
               <div
                 className="cursor-pointer"
                 onClick={() => {
@@ -278,13 +273,14 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
           </div>
           {activateButton ? (
             <button
-              className="mt-4 cursor-pointer p-3 text-white rounded-md hov-dark-green1 "
+            //   className="mt-4 cursor-pointer p-2 text-white rounded-md hov-dark-green1 "
+              className="cursor-pointer text-base p-3 rounded-md text-white mt-4 hov-dark-green2"
               onClick={() => handleCreateBucket()}
             >
               Create
             </button>
           ) : (
-            <button className="mt-4 cursor-pointer p-3 rounded-md deactivate">
+            <button className="mt-4 cursor-pointer text-base p-3 rounded-md deactivate">
               Create
             </button>
           )}

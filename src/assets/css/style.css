@@ -213,6 +213,20 @@ body {
   color: white;
 }
 
+.hov-dark-green2-small{
+  border: #7ac131 solid 1px;
+  background-color: #7ac131;
+  color: black;
+  padding: 6px 10px;
+  border-radius: 14px;
+}
+
+.hov-dark-green2-small:hover {
+  border: #7ac131 solid 1px;
+  background-color: transparent;
+  color: white;
+}
+
 .bucket-box {
   background-color: #1d2024;
 }
@@ -233,19 +247,18 @@ body {
 } */
 
 .deactivate {
-  background-color: rgba(1, 115, 116, 0.2);
+  border: 1px solid rgba(122,193,49,0.2);
+  background-color: rgba(122,193,49,0.2);
   color: rgba(0, 0, 0, 0.5);
-  padding: 14px 25px;
-  border-radius: 17px;
+  padding: 8px 16px;
+  border-radius: 16px;
 }
 .activeNav {
-  color: red;
+  color: #7ac131;
+  border-bottom: 1px solid #7ac131;
 }
 .navTabs:hover {
-  border: 2px;
-  border-radius: 15px;
-  background-color: black;
-  color: white;
+  color: #7AC231;
 }
 
 .green-button:hover {

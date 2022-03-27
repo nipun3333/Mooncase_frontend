@@ -66,7 +66,6 @@ const graphHelper = async (
 
     let slots = await slotMaker(startTime, endTime);
 
-    console.log("Slots are:", slots.slot);
 
     var increaseVal = (tokenStartWeight - tokenEndWeight) / slots.slot;
 
@@ -105,7 +104,7 @@ const graphHelper = async (
 
     return arr;
   } catch (err) {
-    console.log(err);
+
   }
 };
 

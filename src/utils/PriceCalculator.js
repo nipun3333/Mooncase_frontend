@@ -65,9 +65,9 @@ const LatestPrice = async (
         weights[0] / weights[1]
       ));
   var spotPrice = stableAmount / weights[0] / (tokenAmount / weights[1]);
-  //console.log("sp:", spotPrice)
+
   var effectivePrice = (tokenIN * (1 - swapFee)) / tokenOut;
-  //console.log("effectivePrice:", effectivePrice)
+
   var priceImpact = effectivePrice / spotPrice - 1;
   var daiToToken = tokenOut / tokenIN;
 
@@ -104,9 +104,7 @@ async function tokenPriceCalulate(
   );
 
   const stableCoinCurrentPrice = 1; // TODO - fecth price from api
-  // console.log("TokenOut", tokenOut);
-  // console.log("Price Impact", priceImpact * 100);
-  // console.log("1 DAI = ", daiToToken, " SPC");
+  
   if (tokenOut === 0) {
     return 0;
   }

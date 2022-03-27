@@ -30,14 +30,13 @@ export const BucketList = () => {
         progress: undefined,
       });
     } else {
-      console.log(result.data.arr);
       setBucketList(result?.data?.arr);
     }
   }
 
   const [bucketTypes, setBucketTypes] = useState([
     { name: "NFTs", type: "nft" },
-    { name: "Metaverse", type:"metaverse" }
+    { name: "Metaverse", type: "metaverse" }
   ])
 
   useEffect(() => {
@@ -52,7 +51,20 @@ export const BucketList = () => {
         modalstate={addBucketModal}
         setModalstate={setAddBucketModal}
       />
-      <div className="grid grid-cols-3 gap-5 p-3 mx-10">
+      <div className="mt-14 mb-8 flex justify-between">
+        <div className="">
+          <h1 className="text-5xl font-bold">Buckets</h1>
+        </div>
+        <div>
+          <button
+            className="cursor-pointer text-base rounded-md hov-dark-green2-small w-full"
+            onClick={() => setAddBucketModal(true)}
+          >
+            Add Bucket
+          </button>
+        </div>
+      </div>
+      <div className="grid grid-cols-3 gap-5 p-3 mx-10 border-b-2 border-gray-600 pb-10">
         {bucketList &&
           bucketList.map((bucket) => {
             return (
@@ -98,26 +110,9 @@ export const BucketList = () => {
             );
           })}
       </div>
-      <ToastContainer toastStyle={{ backgroundColor: "#000" }} />
-
-
-
 
       <div>
-        <div className="mt-14 flex justify-between">
-          <div className="">
-            <h1 className="text-5xl font-bold">Buckets</h1>
-          </div>
-          <div>
-          <button
-                    className="cursor-pointer text-base p-2 rounded-md hov-dark-green2 w-full"
-                    // style={{ backgroundColor: "#7AC131" }}
-                    onClick={() => setAddBucketModal(true)}
-                  >
-                    Add Bucket
-                  </button>
-          </div>
-        </div>
+
 
         <div>
           {bucketTypes.map((typ) => {
@@ -128,7 +123,7 @@ export const BucketList = () => {
                 <div className="grid grid-cols-3 gap-5 p-3 mx-10 border-b-2 border-gray-600 pb-10">
                   {
                     bucketList.map((bucket) => {
-                      if (bucket.type==typ.type) {
+                      if (bucket.type == typ.type) {
                         return (
                           <>
                             <div
@@ -182,7 +177,7 @@ export const BucketList = () => {
 
 
       </div>
-
+      <ToastContainer toastStyle={{ backgroundColor: "#000" }} />
     </Layout>
   );
 };

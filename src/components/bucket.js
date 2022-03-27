@@ -37,7 +37,6 @@ export const Bucket = (props) => {
         progress: undefined,
       });
     } else {
-      console.log(result.data.arr);
       setBucket(result?.data?.arr);
     }
   };
