@@ -1,0 +1,268 @@
+/*
+ Not Working
+@import url("http://fonts.cdnfonts.com/css/circular-std%27");
+*/
+
+/*  Using this fonts temporarily */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #18191d;
+  color: white;
+  font-family: Lato;
+}
+
+/*  Using these classes for custom colors as the config file is not working as expected */
+.bg-app {
+  background-color: #191e24;
+}
+
+.bg-dark {
+  background-color: #07080a;
+}
+
+.bg-dark-auction-create {
+  background-color: #101215;
+}
+
+.bg-header {
+  background-color: #121519;
+}
+
+.border-color {
+  border-color: #656565;
+}
+
+.text-primary {
+  color: #f70fe8;
+}
+
+.test {
+  background-color: red;
+}
+
+.text-red {
+  color: #ff4878;
+}
+
+.border-primary {
+  border-color: #f70fe8;
+}
+
+.bg-primary {
+  background-color: #f70fe8;
+}
+
+.border-create-auction {
+  border-color: #c4c4c4;
+}
+
+.numberInput::-webkit-outer-spin-button,
+.numberInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.numberInput {
+  -moz-appearance: textfield;
+}
+
+/* For card */
+.data-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 20.75em;
+  min-height: 20.75em;
+  overflow: hidden;
+  border-radius: 0.5em;
+  text-decoration: none;
+  background: white;
+  margin: 1em;
+  padding: 2.75em 2.5em;
+  box-shadow: 0 1.5em 2.5em -0.5em rgba(0, 0, 0, 0.1);
+  transition: transform 0.45s ease, background 0.45s ease;
+}
+.data-card h3 {
+  color: #2e3c40;
+  font-size: 3.5em;
+  font-weight: 600;
+  line-height: 1;
+  padding-bottom: 0.5em;
+  margin: 0 0 0.142857143em;
+  border-bottom: 2px solid #753bbd;
+  transition: color 0.45s ease, border 0.45s ease;
+}
+.data-card h4 {
+  color: #627084;
+  text-transform: uppercase;
+  font-size: 1.125em;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  margin: 0 0 1.777777778em;
+  transition: color 0.45s ease;
+}
+.data-card > p {
+  /* display: none; */
+  visibility: none;
+  opacity: 0;
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.8;
+  margin: 0 0 1.25em;
+  transform: translateY(-1em);
+  transition: opacity 0.45s ease, transform 0.5s ease;
+}
+.data-card .link-text {
+  display: block;
+  color: #753bbd;
+  font-size: 1.125em;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: auto 0 0;
+  transition: color 0.45s ease;
+}
+.data-card .link-text svg {
+  margin-left: 0.5em;
+  transition: transform 0.6s ease;
+}
+.data-card .link-text svg path {
+  transition: fill 0.45s ease;
+}
+.data-card:hover {
+  background: #753bbd;
+  transform: scale(1.02);
+}
+.data-card:hover h3 {
+  color: #fff;
+  border-bottom-color: #a754c4;
+}
+.data-card:hover h4 {
+  color: #fff;
+}
+.data-card:hover > p {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  /* display: block; */
+}
+.data-card:hover .link-text {
+  color: #fff;
+}
+.data-card:hover .link-text svg {
+  animation: point 1.25s infinite alternate;
+}
+.data-card:hover .link-text svg path {
+  fill: #fff;
+}
+@keyframes point {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(0.125em);
+  }
+}
+.hov-dark-pur {
+  border: #017374 solid 1px;
+  background-color: #017374;
+  color: white;
+  padding: 14px 25px;
+  border-radius: 17px;
+}
+
+.hov-dark-pur:hover {
+  border: #017374 solid 1px;
+  background-color: transparent;
+}
+
+.hov-dark-green1 {
+  border: #017374 solid 1px;
+  background-color: #017374;
+  color: white;
+  padding: 14px 25px;
+  border-radius: 17px;
+}
+
+.hov-dark-green1:hover {
+  border: #017374 solid 1px;
+  background-color: transparent;
+}
+
+.company-box {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.hov-dark-green2 {
+  border: #7ac131 solid 1px;
+  background-color: #7ac131;
+  color: black;
+  padding: 8px 16px;
+  border-radius: 16px;
+}
+
+.hov-dark-green2:hover {
+  border: #7ac131 solid 1px;
+  background-color: transparent;
+  color: white;
+}
+
+.hov-dark-green2-small{
+  border: #7ac131 solid 1px;
+  background-color: #7ac131;
+  color: black;
+  padding: 6px 10px;
+  border-radius: 14px;
+}
+
+.hov-dark-green2-small:hover {
+  border: #7ac131 solid 1px;
+  background-color: transparent;
+  color: white;
+}
+
+.bucket-box {
+  background-color: #1d2024;
+}
+
+.bucket-card {
+  background-color: #1d2024;
+}
+
+.hoverSelectOption:hover {
+  color: white;
+  background: #1d2024;
+  border-radius: 6px;
+}
+/* 
+.dropdown-menu{
+  position: fixed;
+
+} */
+
+.deactivate {
+  border: 1px solid rgba(122,193,49,0.2);
+  background-color: rgba(122,193,49,0.2);
+  color: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  border-radius: 16px;
+}
+.activeNav {
+  color: #7ac131;
+  border-bottom: 1px solid #7ac131;
+}
+.navTabs:hover {
+  color: #7AC231;
+}
+
+.green-button:hover {
+  border: #7ac131 solid 1px;
+  background-color: #7ac131;
+  color: black;
+}
