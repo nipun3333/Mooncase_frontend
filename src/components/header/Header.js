@@ -100,12 +100,16 @@ export default function Header() {
               Bucket list
             </button>
           </div>
-          <button
-            className="cursor-pointer p-3 rounded-md hov-dark-green1"
-            onClick={() => HandleConnect()}
-          >
-            Connect
-          </button>
+          {isWalletConnected ? (
+            walletAddress
+          ) : (
+            <button
+              className="cursor-pointer p-3 rounded-md hov-dark-green1"
+              onClick={() => HandleConnect()}
+            >
+              Connect
+            </button>
+          )}
         </div>
       </div>
     </>

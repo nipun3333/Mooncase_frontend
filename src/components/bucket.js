@@ -3,8 +3,13 @@ import Layout from "./layout/Layout";
 import image from "./../assets/images/ImportanceofCorporateImage.jpg";
 import GraphComp from "../pages/graph";
 import Piechart from "../pages/piechartGraph";
+import useWeb3 from "../utils/useWeb3";
 
 export const Bucket = (props) => {
+
+  const web3 = useWeb3();
+  
+
   const [bucket, setBucket] = useState({
     bucketName: "Crypto Bucket",
     smallDesc:
