@@ -63,6 +63,7 @@ export const Bucket = (props) => {
           <BuyBucketModal
             modalstate={openBuyModal}
             setModalstate={setOpenBuyModal}
+            data={bucket?.coins}
           />
         </div>
         <div

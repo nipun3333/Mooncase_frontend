@@ -1,0 +1,17 @@
+[[["0x8EFB5F9EF4F59BC3D511DFAAA567E180BD695ADA000200000000000000000752",0,"0xdFCeA9088c8A88A76FF74892C1457C17dfeef9C1","0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD","0xE35FA931A0000","0x"],["0x346410FEdC0e60C467FB37B2D46334d3410E9E67",false,"0x346410FEdC0e60C467FB37B2D46334d3410E9E67",false] , 0 , "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"],[["0x83CC759949582DA3CACD1CDE1A604E812F067727000200000000000000000753",0,"0xdFCeA9088c8A88A76FF74892C1457C17dfeef9C1","0x13512979ADE267AB5100878E2e0f485B568328a4","0x1550F7DCA70000","0x"],["0x346410FEdC0e60C467FB37B2D46334d3410E9E67",false,"0x346410FEdC0e60C467FB37B2D46334d3410E9E67",false] , 0 , "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"]]
+sturct singleswap{
+bytes32 poolId;
+Swapkind kind; {enum (GIVEN_IN,GIVEN_OUT)} ( fixed = 0)
+IAsset assetIn; ( WETH address)
+IAsset assetOut; ( (DAI|USDT|BUSD) address)
+uint256 amount;(input amount)
+bytes userData; (‘0x’)
+}
+sturct fundmanagement{
+         Address sender; (contract address)
+    Bool fromInternalBalance; (false)
+    Address payable recipient;(contract address)
+    Bool toInternalBalance;(false)
+}
+Limit: (0)
+Deadline : maximum value {0xff{64 times} }

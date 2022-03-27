@@ -20,7 +20,7 @@ export const BucketList = () => {
   const fetchBuckets = async () => {
     const result = await getCasesApi(3);
     if(result === false) {
-      toast.warn(`Unable to Create Bucket's at the moment`, {
+      toast.warn(`Unable to Fetch Bucket's at the moment`, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
