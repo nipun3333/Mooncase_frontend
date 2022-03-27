@@ -10,9 +10,20 @@ import {
 import SwitchNetwork from "../../redux/Services/SwitchNetwork";
 import useWeb3 from "../../utils/useWeb3";
 import { useNavigate } from "react-router-dom";
-import  handleLogout  from './../../redux/Services/Logout';
+import handleLogout from "./../../redux/Services/Logout";
 
 export default function Header() {
+  const [isHome, setIsHome] = useState(false);
+  const [isBucketList, setIsBucketList] = useState(false);
+  useEffect(() => {
+    const url = window.location.href;
+    console.log(url);
+    if (url === "/") {
+      setIsHome(true);
+    } else if (url === "/bucketlist") {
+      setIsBucketList(true);
+    }
+  }, []);
   const navigate = useNavigate();
 
   let walletAddress = useSelector((state) => state.wallet.walletAddress);
@@ -83,6 +94,13 @@ export default function Header() {
 
   useEffect(() => {
     console.log(location.pathname);
+    const url = location.pathname;
+
+    if (url === "/") {
+      setIsHome(true);
+    } else if (url === "/bucketlist") {
+      setIsBucketList(true);
+    }
   }, []);
 
   useEffect(() => {
@@ -95,13 +113,21 @@ export default function Header() {
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-5">
             <div
-              className="py-auto cursor-pointer"
+              className={
+                isHome
+                  ? "activeNav py-auto cursor-pointer"
+                  : "py-auto cursor-pointer p-3 navTabs"
+              }
               onClick={() => navigate("/")}
             >
               Moon Case
             </div>
             <div
-              className="cursor-pointer p-3 "
+              className={
+                isBucketList
+                  ? "activeNav py-auto cursor-pointer"
+                  : "cursor-pointer p-3 navTabs"
+              }
               onClick={() => navigate("/bucketlist")}
             >
               Bucket list
@@ -111,24 +137,23 @@ export default function Header() {
           <div>🚀🌕🚀</div>
 
           <div className="flex gap-8 justify-end">
-          {walletAddress && isWalletConnected ? (
-            <div
-              className="py-3 px-4 hov-dark-green1 rounded-2xl flex justify-between items-center w-40 cursor-pointer"
-              onClick={() => {
-                handleLogout();
-                
-              }}
-            >
-              {walletAddress.slice(0, 5) + "...." + walletAddress.slice(-4)}
-              
-            </div>
-          ) :
-            <button
-              className="cursor-pointer p-3 rounded-md hov-dark-green1 "
-              onClick={() => HandleConnect()}
-            >
-              Connect
-            </button>}
+            {walletAddress && isWalletConnected ? (
+              <div
+                className="py-3 px-4 hov-dark-green1 rounded-2xl flex justify-between items-center w-40 cursor-pointer"
+                onClick={() => {
+                  handleLogout();
+                }}
+              >
+                {walletAddress.slice(0, 5) + "...." + walletAddress.slice(-4)}
+              </div>
+            ) : (
+              <button
+                className="cursor-pointer p-3 rounded-md hov-dark-green1 "
+                onClick={() => HandleConnect()}
+              >
+                Connect
+              </button>
+            )}
           </div>
         </div>
       </div>

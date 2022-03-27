@@ -3,7 +3,7 @@ import HeroImg from "../assets/images/heroimage.svg";
 import { Button } from "../components/styledComponents/Buttons/index";
 import CopperText from "../assets/images/cooper_alchemist.svg";
 import CopperFont from "../assets/images/copper_font.svg";
-
+import { useState, useEffect } from "react";
 function Home() {
   return (
     <Layout>

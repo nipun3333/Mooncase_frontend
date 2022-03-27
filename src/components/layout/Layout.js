@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 
 class layout extends Component {
   state = {};
+
   render() {
     return (
       <div className="">
