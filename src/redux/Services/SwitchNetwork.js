@@ -10,7 +10,7 @@ const SwitchNetwork = async (id, errorhandler) => {
         payload: id
     })
     let isWalletConnected = await checkConnection();
-    console.log("isWalletConnected", isWalletConnected);
+
     if(isWalletConnected){
         try {
             await window.ethereum.request({

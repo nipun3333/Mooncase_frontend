@@ -323,8 +323,6 @@ const SelectInput = (props) => {
         successful = true;
       }
       if (walletChain && !successful && walletChain.length !== 0) {
-        console.log("walletChain", walletChain, "In the first render");
-
         props.setSwitchWarning(true);
       } else {
         props.setSwitchWarning(false);

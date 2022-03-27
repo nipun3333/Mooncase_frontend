@@ -289,15 +289,15 @@ export default function BuyBucketModal({ modalstate, setModalstate, data }) {
                 </div>
               );
             })}
-            {/* {
+            {
               showApproveButton ? <button className='w-full items-center justify-center flex border-2 rounded-xl p-2 mt-6 mb-2'
                 onClick={() => approveTokenAllowance()}
               >
                 Approve
               </button> : null
-            } */}
+            }
           <button
-            className="w-full items-center justify-center flex border-2 rounded-xl p-2 mt-6 mb-2"
+            className="w-full items-center justify-center flex border-2 rounded-xl p-2 mt-6 mb-2 green-button"
             style={{ borderColor: "#7AC131" }}
             onClick={() => {handleDeposit()}}
           >

@@ -18,10 +18,6 @@ body {
   font-family: Lato;
 }
 
-.bg-copper {
-  background: url(../images/Union.svg) center center no-repeat;
-}
-
 /*  Using these classes for custom colors as the config file is not working as expected */
 .bg-app {
   background-color: #191e24;
@@ -204,15 +200,29 @@ body {
 }
 
 .hov-dark-green2 {
-  border: #017374 solid 1px;
-  background-color: #017374;
-  color: white;
-  padding: 14px 25px;
-  border-radius: 17px;
+  border: #7ac131 solid 1px;
+  background-color: #7ac131;
+  color: black;
+  padding: 8px 16px;
+  border-radius: 16px;
 }
 
 .hov-dark-green2:hover {
-  border: #017374 solid 1px;
+  border: #7ac131 solid 1px;
+  background-color: transparent;
+  color: white;
+}
+
+.hov-dark-green2-small{
+  border: #7ac131 solid 1px;
+  background-color: #7ac131;
+  color: black;
+  padding: 6px 10px;
+  border-radius: 14px;
+}
+
+.hov-dark-green2-small:hover {
+  border: #7ac131 solid 1px;
   background-color: transparent;
   color: white;
 }
@@ -227,7 +237,7 @@ body {
 
 .hoverSelectOption:hover {
   color: white;
-  background: #2a2b31;
+  background: #1d2024;
   border-radius: 6px;
 }
 /* 
@@ -237,6 +247,22 @@ body {
 } */
 
 .deactivate {
-  background-color: rgba(122, 194, 49, 0.2);
+  border: 1px solid rgba(122,193,49,0.2);
+  background-color: rgba(122,193,49,0.2);
   color: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  border-radius: 16px;
+}
+.activeNav {
+  color: #7ac131;
+  border-bottom: 1px solid #7ac131;
+}
+.navTabs:hover {
+  color: #7AC231;
+}
+
+.green-button:hover {
+  border: #7ac131 solid 1px;
+  background-color: #7ac131;
+  color: black;
 }
