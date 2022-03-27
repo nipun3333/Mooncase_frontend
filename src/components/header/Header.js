@@ -10,6 +10,7 @@ import {
 import SwitchNetwork from "../../redux/Services/SwitchNetwork";
 import useWeb3 from "../../utils/useWeb3";
 import { useNavigate } from "react-router-dom";
+import  handleLogout  from './../../redux/Services/Logout';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -110,13 +111,24 @@ export default function Header() {
           <div>🚀🌕🚀</div>
 
           <div className="flex gap-8 justify-end">
-            <div></div>
+          {walletAddress && isWalletConnected ? (
+            <div
+              className="py-3 px-4 hov-dark-green1 rounded-2xl flex justify-between items-center w-40 cursor-pointer"
+              onClick={() => {
+                handleLogout();
+                
+              }}
+            >
+              {walletAddress.slice(0, 5) + "...." + walletAddress.slice(-4)}
+              
+            </div>
+          ) :
             <button
-              className="cursor-pointer p-3 rounded-md hov-dark-green1 bg-red-600"
+              className="cursor-pointer p-3 rounded-md hov-dark-green1 "
               onClick={() => HandleConnect()}
             >
               Connect
-            </button>
+            </button>}
           </div>
         </div>
       </div>
