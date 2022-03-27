@@ -277,7 +277,7 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
 
                     </div>
                     {activateButton ?
-                        <button className='mt-4 cursor-pointer p-3 text-white rounded-md hov-dark'>
+                        <button className='mt-4 cursor-pointer p-3 text-white rounded-md hov-dark' onClick={() => handleCreateBucket()}>
                             Create
                         </button>
                         :
