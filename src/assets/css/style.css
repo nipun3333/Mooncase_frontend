@@ -13,7 +13,7 @@
 }
 
 body {
-  background: #18191D;
+  background: #18191d;
   color: white;
   font-family: Lato;
 }
@@ -173,23 +173,29 @@ body {
     transform: translateX(0.125em);
   }
 }
-.hov-dark {
-  border: #7AC231 solid 1px;
-  background-color: #7AC231;
+.hov-dark-pur {
+  border: #017374 solid 1px;
+  background-color: #017374;
+  color: white;
+  padding: 14px 25px;
+  border-radius: 17px;
 }
 
-.hov-dark:hover {
-  border: #7AC231 solid 1px;
+.hov-dark-pur:hover {
+  border: #017374 solid 1px;
   background-color: transparent;
 }
 
-.hov-light {
-  border: #7AC231 solid 1px;
-  background-color: #7AC231;
+.hov-dark-green1 {
+  border: #017374 solid 1px;
+  background-color: #017374;
+  color: white;
+  padding: 14px 25px;
+  border-radius: 17px;
 }
 
-.hov-light:hover {
-  border: #7AC231 solid 1px;
+.hov-dark-green1:hover {
+  border: #017374 solid 1px;
   background-color: transparent;
 }
 
@@ -201,6 +207,8 @@ body {
   border: #017374 solid 1px;
   background-color: #017374;
   color: white;
+  padding: 14px 25px;
+  border-radius: 17px;
 }
 
 .hov-dark-green2:hover {
@@ -209,17 +217,17 @@ body {
   color: white;
 }
 
-.bucket-box{
-  background-color: #1D2024;
+.bucket-box {
+  background-color: #1d2024;
 }
 
-.bucket-card{
-  background-color: #1D2024;
+.bucket-card {
+  background-color: #1d2024;
 }
 
 .hoverSelectOption:hover {
   color: white;
-  background: #2A2B31;
+  background: #2a2b31;
   border-radius: 6px;
 }
 /* 
@@ -227,3 +235,8 @@ body {
   position: fixed;
 
 } */
+
+.deactivate {
+  background-color: rgba(122, 194, 49, 0.2);
+  color: rgba(0, 0, 0, 0.5);
+}

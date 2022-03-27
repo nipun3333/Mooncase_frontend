@@ -7,6 +7,7 @@ import useWeb3 from "../utils/useWeb3";
 import { getCaseDetailsApi } from "../api/CaseDetailsApi";
 import { useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import BuyBucketModal from "../pages/buyModal";
 
 export const Bucket = (props) => {
   const web3 = useWeb3();
@@ -17,12 +18,12 @@ export const Bucket = (props) => {
   const [bucket, setBucket] = useState({
     bucketName: "Crypto Bucket",
     smallDesc:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum ",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. of the printing and typesetting industry. ",
     investmentAmount: "728",
   });
   const [tab, setTab] = useState("overview");
   const [coinDetail, setCoinDetail] = useState([]);
-
+  const [openBuyModal, setOpenBuyModal] = useState(false);
   const fetchCaseDetails = async () => {
     const result = await getCaseDetailsApi(id);
     if (result === false) {
@@ -58,9 +59,15 @@ export const Bucket = (props) => {
   return (
     <Layout>
       <div>
+        <div className="">
+          <BuyBucketModal
+            modalstate={openBuyModal}
+            setModalstate={setOpenBuyModal}
+          />
+        </div>
         <div
           className="p-5 company-box rounded-xl"
-          style={{ backgroundColor: "#65656A" }}
+          style={{ backgroundColor: "#2A2B31" }}
         >
           <div className="flex gap-10">
             <div>
@@ -72,23 +79,25 @@ export const Bucket = (props) => {
               </h1>
               <h1 className="text-white text-lg w-3/4">{bucket.caseDescription}</h1>
             </div>
-          </div>
 
-          <div className="mt-10">
-            <div className="w-1/6">
-              <div className="flex flex-col gap-2">
-                <p>Amount for investment</p>
-                <p className="text-xl font-semibold">
-                  ₹ {bucket.investmentAmount}
-                </p>
-              </div>
-              <div className="mt-4 flex gap-5">
-                <button className="cursor-pointer text-xl p-2 rounded-md hov-dark-green2 w-full">
-                  Invest
-                </button>
-                <button className="cursor-pointer text-xl p-2 rounded-md hov-dark-green2 w-full">
-                  Withdraw
-                </button>
+            <div className="">
+              <div>
+                <div className=" flex gap-5">
+                  <button
+                    className="cursor-pointer text-xl p-2 rounded-md hov-dark-green2 w-full"
+                    style={{ backgroundColor: "#7AC131" }}
+                    onClick={() => setOpenBuyModal(!openBuyModal)}
+                  >
+                    Invest
+                  </button>
+                  <button
+                    className="cursor-pointer text-xl p-2 rounded-md hov-dark-green2 w-full"
+                    style={{ backgroundColor: "#7AC131" }}
+                  >
+                    Withdraw
+                  </button>
+                </div>
+                <div className="mt-5 flex flex-col gap-2 "></div>
               </div>
             </div>
           </div>
@@ -126,18 +135,24 @@ export const Bucket = (props) => {
           <div className="flex">
             <div className="flex flex-col gap-5 w-1/2 mt-5">
               <div
-                className="flex justify-between p-5 rounded-2xl"
-                style={{ backgroundColor: "#2A2B31", color: "#7AC131" }}
+                className="grid grid-cols-3 p-5 rounded-2xl text-center"
+                style={{ color: "#7AC131" }}
               >
-                <div>{"Name"}</div>
-                <div>{"price"}</div>
-                <div>{"percentage"}</div>
+                <div className="font-extrabold text-2xl text-center">
+                  {"Name"}
+                </div>
+                <div className="font-extrabold text-2xl text-center">
+                  {"Price"}
+                </div>
+                <div className="font-extrabold text-2xl text-center">
+                  {"Percentage"}
+                </div>
               </div>
               {bucket?.coins.map((coin) => {
                 return (
                   <div
-                    className="flex justify-between p-5 rounded-2xl"
-                    style={{ backgroundColor: "#2A2B31", color: "#7AC131" }}
+                    className="grid grid-cols-3 p-5 rounded-2xl"
+                    style={{ backgroundColor: "#2A2B31" }}
                   >
                     <div>{coin.symbol}</div>
                     <div className="justify-center flex items-center">
