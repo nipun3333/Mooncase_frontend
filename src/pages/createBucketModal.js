@@ -7,6 +7,7 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
     const [currencies, setCurrencies] = useState([
         "C1", "C2", "C3", "C4"
     ])
+    const [currTotalFlag, setCurrTotalFlag] = useState(false);
     const [checkSum, setCheckSum] = useState(0);
     const [activateButton, setActivateButton] = useState(false);
     const [bucketData, setBucketData] = useState({
@@ -24,33 +25,44 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
     const handlePerChange = (curr, val) => {
         setFinCurr(finCurr.map((cur) => {
             if (cur.curr === curr) {
-                if(val==""){
-                    // setCheckSum(parseInt(checkSum, 10)-parseInt(cur.per,10));
-                    // return cur
-                }
-                else{
-                    console.log(checkSum,val,parseInt(checkSum,10),parseInt(val,10));
-                    setCheckSum(parseInt(checkSum, 10)-parseInt(cur.per,10)+parseInt(val, 10));
-                }
                 return { "curr": curr, per: val };
             }
             else {
                 return cur;
             }
         }))
+        console.log(curr, val);
     }
     useEffect(() => {
         if (
             bucketData.name != "" &&
             bucketData.desc != "" &&
             bucketData.type != "" &&
-            bucketData.image != ""
+            bucketData.image != "" &&
+            currTotalFlag
         ) {
             setActivateButton(true);
         } else {
             setActivateButton(false);
         }
-    }, [bucketData]);
+    }, [bucketData, currTotalFlag]);
+
+    useEffect(() => {
+        var ans = 0;
+        finCurr.map((cur) => {
+            ans = ans + parseInt(cur.per, 10)
+        })
+        if(ans==100){
+            setCurrTotalFlag(true);
+        }
+        else{
+            setCurrTotalFlag(false);
+        }
+        console.log(ans);
+    }, [finCurr])
+
+    console.log(currTotalFlag, activateButton, finCurr);
+    
     
 
     const handleChange = (name, value) => {
