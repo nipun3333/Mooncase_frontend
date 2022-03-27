@@ -53,14 +53,6 @@ export const BucketList = () => {
         setModalstate={setAddBucketModal}
       />
       <div className="grid grid-cols-3 gap-5 p-3 mx-10">
-        <div
-          className="p-8 rounded-lg cursor-pointer flex items-center flex-col gap-2 justify-center"
-          style={{ border: "3px dashed #1D2024" }}
-          onClick={() => setAddBucketModal(true)}
-        >
-          <Plus />
-          <h1 style={{ color: "#1D2024" }}>Add Bucket</h1>
-        </div>
         {bucketList &&
           bucketList.map((bucket) => {
             return (
@@ -117,13 +109,13 @@ export const BucketList = () => {
             <h1 className="text-5xl font-bold">Buckets</h1>
           </div>
           <div>
-            <button
-              className="cursor-pointer text-base rounded-md hov-dark-green2"
-              style={{ backgroundColor: "#7AC131" }}
-              onClick={() => setAddBucketModal(true)}
-            >
-              Add Bucket
-            </button>
+          <button
+                    className="cursor-pointer text-base p-2 rounded-md hov-dark-green2 w-full"
+                    // style={{ backgroundColor: "#7AC131" }}
+                    onClick={() => setAddBucketModal(true)}
+                  >
+                    Add Bucket
+                  </button>
           </div>
         </div>
 
