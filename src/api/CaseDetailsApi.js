@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const getAuctionDetailsApi = async (data) => {
+export const getCaseDetailsApi = async (data) => {
   const result = await axios
-    .get(process.env.REACT_APP_API_URL + "/api/get-auction-by-pool/" + data)
+    .get(process.env.REACT_APP_API_URL + "/api/get-case-by-id/" + data)
     .then((res) => {
       return res.data;
     })

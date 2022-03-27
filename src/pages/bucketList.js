@@ -3,11 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { Bucket } from "../components/bucket";
 import Layout from "../components/layout/Layout";
 import image from "./../assets/images/ImportanceofCorporateImage.jpg";
-
+import { toast, ToastContainer } from "react-toastify";
 import { Plus } from "./../assets/icon";
 import ModalLayout from "../modal/modal";
 import Modal from "react-modal";
 import CreateBucketModal from "./createBucketModal";
+import { getCasesApi } from "../api/GetCases";
 
 Modal.setAppElement("#root");
 
@@ -15,19 +16,28 @@ export const BucketList = () => {
   const [bucketList, setBucketList] = useState([]);
   const navigate = useNavigate();
   const [addBucketModal, setAddBucketModal] = useState(false);
-  useEffect(() => {
-    var l = [];
-    for (var i = 0; i < 5; i++) {
-      l.push({
-        id: i,
-        name: "Crypto" + i,
-        desc: "Great description dsaf adwsfwwe wef ew Great description dsaf adwsfwwe wef ew Great description dsaf adwsfwwe wef ew Great description dsaf adwsfwwe wef ew Great description dsaf adwsfwwe wef ew",
-        totalAvailableCurrencies: (i + 1) * 10,
-        username: "user",
-        type: "nft",
+
+  const fetchBuckets = async () => {
+    const result = await getCasesApi(3);
+    if(result === false) {
+      toast.warn(`Unable to Create Bucket's at the moment`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
       });
+    }else {
+      console.log(result.data.arr);
+      setBucketList(result?.data?.arr);
     }
-    setBucketList(l);
+  }
+
+  useEffect(() => {
+    
+    fetchBuckets();
   }, []);
 
   // All cards
@@ -53,7 +63,7 @@ export const BucketList = () => {
                 <div
                   className="bucket-card p-8 rounded-lg cursor-pointer"
                   onClick={() => {
-                    navigate("/bucket/1");
+                    navigate("/bucket/" + bucket._id);
                   }}
                 >
                   <div className="flex justify-center flex-col">
@@ -76,16 +86,17 @@ export const BucketList = () => {
                       </div>
                     </div>
                     <h1 className="text-xl text-white font-semibold">
-                      {bucket.name}
+                      {bucket.bucketName}
                     </h1>
-                    <p className="text-ss text-gray-400">{bucket.username}</p>
-                    <p className="text-xs mt-2">{bucket.desc}</p>
+                    <p className="text-ss text-gray-400">{bucket.creatorAddress}</p>
+                    <p className="text-xs mt-2">{bucket.caseDescription}</p>
                   </div>
                 </div>
               </>
             );
           })}
       </div>
+      <ToastContainer toastStyle={{ backgroundColor: "#000" }} />
     </Layout>
   );
 };

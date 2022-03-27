@@ -4,11 +4,13 @@ import image from "./../assets/images/ImportanceofCorporateImage.jpg";
 import GraphComp from "../pages/graph";
 import Piechart from "../pages/piechartGraph";
 import useWeb3 from "../utils/useWeb3";
+import { getCaseDetailsApi } from "../api/CaseDetailsApi";
 
 export const Bucket = (props) => {
 
   const web3 = useWeb3();
-  
+
+  // Use Params
 
   const [bucket, setBucket] = useState({
     bucketName: "Crypto Bucket",
@@ -19,17 +21,22 @@ export const Bucket = (props) => {
   const [tab, setTab] = useState("overview");
   const [coinDetail, setCoinDetail] = useState([]);
 
+  const fetchCaseDetails = async () => {
+    const result = await getCaseDetailsApi()
+  }
+
   useEffect(() => {
-    var l = [];
-    for (var i = 0; i < 5; i++) {
-      l.push({
-        id: i,
-        name: "Bitcoin",
-        percentage: (i + 2) * 5,
-        price: (i + 2) * 10,
-      });
-    }
-    setCoinDetail(l);
+    // var l = [];
+    // for (var i = 0; i < 5; i++) {
+    //   l.push({
+    //     id: i,
+    //     name: "Bitcoin",
+    //     percentage: (i + 2) * 5,
+    //     price: (i + 2) * 10,
+    //   });
+    // }
+    // setCoinDetail(l);
+    fetchCaseDetails();
   }, []);
   // All cards
   return (
