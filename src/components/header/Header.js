@@ -95,9 +95,9 @@ export default function Header() {
       <div className="w-1/4 ml-auto">
         <div className="flex gap-8 justify-end">
           <div>
-            <button className="cursor-pointer p-3 rounded-md hov-dark-pur" onClick={() => navigate("/bucketlist")}>Bucket list</button>
+            <button className="cursor-pointer p-3 text-white rounded-md hov-dark" onClick={() => navigate("/bucketlist")}>Bucket list</button>
           </div>
-          <button className="cursor-pointer p-3 rounded-md hov-dark-green1" onClick={() => HandleConnect()}>Connect</button>
+          <button className="cursor-pointer p-3 rounded-md text-white hov-light" onClick={() => HandleConnect()}>Connect</button>
         </div>
       </div>
     </>

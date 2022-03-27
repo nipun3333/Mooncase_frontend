@@ -173,28 +173,24 @@ body {
     transform: translateX(0.125em);
   }
 }
-.hov-dark-pur {
-  border: #bb86fc solid 1px;
-  background-color: #bb86fc;
-  color: black;
+.hov-dark {
+  border: #7AC231 solid 1px;
+  background-color: #7AC231;
 }
 
-.hov-dark-pur:hover {
-  border: #bb86fc solid 1px;
+.hov-dark:hover {
+  border: #7AC231 solid 1px;
   background-color: transparent;
-  color: white;
 }
 
-.hov-dark-green1 {
-  border: #03dac5 solid 1px;
-  background-color: #03dac5;
-  color: black;
+.hov-light {
+  border: #7AC231 solid 1px;
+  background-color: #7AC231;
 }
 
-.hov-dark-green1:hover {
-  border: #03dac5 solid 1px;
+.hov-light:hover {
+  border: #7AC231 solid 1px;
   background-color: transparent;
-  color: white;
 }
 
 .company-box {
@@ -220,3 +216,14 @@ body {
 .bucket-card{
   background-color: #1D2024;
 }
+
+.hoverSelectOption:hover {
+  color: white;
+  background: #2A2B31;
+  border-radius: 6px;
+}
+/* 
+.dropdown-menu{
+  position: fixed;
+
+} */
