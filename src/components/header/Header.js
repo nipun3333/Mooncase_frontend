@@ -134,8 +134,6 @@ export default function Header() {
             </div>
           </div>
 
-          <div>🚀🌕🚀</div>
-
           <div className="flex gap-8 justify-end">
             {walletAddress && isWalletConnected ? (
               <div
@@ -270,7 +268,7 @@ export default function Header() {
 //               color: location.pathname === "/" ? "#F70FE8" : "#FFFFFF",
 //             }}
 //           >
-//             Copper
+
 //           </Link>
 //           <Link
 //             to="/auction"

@@ -18,10 +18,6 @@ body {
   font-family: Lato;
 }
 
-.bg-copper {
-  background: url(../images/Union.svg) center center no-repeat;
-}
-
 /*  Using these classes for custom colors as the config file is not working as expected */
 .bg-app {
   background-color: #191e24;

@@ -4,7 +4,6 @@ import { About } from "../pages/about";
 import { BucketList } from "../pages/bucketList";
 
 // import { PrivateRoute } from "./PrivateRoute";
-import Home from "../pages/Home";
 
 function PublicRoute() {
   return (
@@ -13,7 +12,7 @@ function PublicRoute() {
         <Routes>
           <Route path="/" element={<About />} />
           <Route path="/bucketlist" element={<BucketList />} />
-          <Route path="/home" element={<Home />} />
+
           <Route path="/bucket/:id" element={<Bucket />} />
         </Routes>
       </BrowserRouter>
