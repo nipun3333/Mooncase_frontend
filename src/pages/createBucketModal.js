@@ -14,7 +14,7 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
 
     const [currencyDropDown, setCurrencyDropDown] = useState(false);
     const [currencies, setCurrencies] = useState([
-        "DAI", "USDC"
+        "DAI", "USDT"
     ])
     const [checkSum, setCheckSum] = useState(0);
     const [activateButton, setActivateButton] = useState(false);
