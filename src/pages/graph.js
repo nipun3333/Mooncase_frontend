@@ -111,7 +111,7 @@ const CustomizedAxisTick: FunctionComponent<any> = (props: any) => {
 
 export default function GraphComp() {
   return (
-    <div className="">
+    <div className="flex justify-center items-center">
       <ResponsiveContainer width="50%" height={400} position="center">
         <LineChart
           //   width={500}

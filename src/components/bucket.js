@@ -36,7 +36,7 @@ export const Bucket = (props) => {
         draggable: true,
         progress: undefined,
       });
-    }else {
+    } else {
       console.log(result.data.arr);
       setBucket(result?.data?.arr);
     }
@@ -67,9 +67,11 @@ export const Bucket = (props) => {
         </div>
         <div
           className="p-5 company-box rounded-xl"
-          style={{ backgroundColor: "#2A2B31" }}
+          style={{ backgroundColor: "#1D2024" }}
         >
-          <div className="flex gap-10">
+          <div className="flex justify-between gap-10">
+            <div className="flex gap-10">
+
             <div>
               <img src={image} alt="" width={"160px"} height={"160px"} />
             </div>
@@ -79,20 +81,21 @@ export const Bucket = (props) => {
               </h1>
               <h1 className="text-white text-lg w-3/4">{bucket.caseDescription}</h1>
             </div>
+            </div>
 
             <div className="">
               <div>
                 <div className=" flex gap-5">
                   <button
-                    className="cursor-pointer text-xl p-2 rounded-md hov-dark-green2 w-full"
-                    style={{ backgroundColor: "#7AC131" }}
+                    className="cursor-pointer text-base p-2 rounded-md hov-dark-green2 w-full"
+                    // style={{ backgroundColor: "#7AC131" }}
                     onClick={() => setOpenBuyModal(!openBuyModal)}
                   >
                     Invest
                   </button>
                   <button
-                    className="cursor-pointer text-xl p-2 rounded-md hov-dark-green2 w-full"
-                    style={{ backgroundColor: "#7AC131" }}
+                    className="cursor-pointer text-base p-2 rounded-md hov-dark-green2 w-full"
+                    // style={{ backgroundColor: "#7AC131" }}
                   >
                     Withdraw
                   </button>
@@ -108,7 +111,7 @@ export const Bucket = (props) => {
             className="rounded-2xl p-4 cursor-pointer"
             style={
               tab === "overview"
-                ? { background: "#4C4D55" }
+                ? { background: "#1D2024" }
                 : { color: "#606166" }
             }
             onClick={() => setTab("overview")}
@@ -119,7 +122,7 @@ export const Bucket = (props) => {
             className="rounded-2xl p-4 cursor-pointer"
             style={
               tab === "currency"
-                ? { background: "#4C4D55" }
+                ? { background: "#1D2024" }
                 : { color: "#606166" }
             }
             onClick={() => setTab("currency")}
@@ -128,7 +131,7 @@ export const Bucket = (props) => {
           </div>
         </div>
         {tab === "overview" ? (
-          <div className="mt-5">
+          <div className="mt-5 ml-auto">
             <GraphComp />
           </div>
         ) : (
@@ -152,7 +155,7 @@ export const Bucket = (props) => {
                 return (
                   <div
                     className="grid grid-cols-3 p-5 rounded-2xl"
-                    style={{ backgroundColor: "#2A2B31" }}
+                    style={{ backgroundColor: "#1D2024" }}
                   >
                     <div>{coin.symbol}</div>
                     <div className="justify-center flex items-center">

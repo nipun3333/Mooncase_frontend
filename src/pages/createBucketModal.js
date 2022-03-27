@@ -28,7 +28,7 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
     const [finCurr, setFinCurr] = useState([]);
     const handleCurr = (curr) => {
         setCurrencies(currencies.filter((currancy) => currancy != curr));
-        setFinCurr([...finCurr, { "curr": curr, per: 0 }]);
+        setFinCurr([...finCurr, { "curr": curr, per: "" }]);
     }
 
     const handleCreateBucket = async () => {
@@ -36,23 +36,23 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
         console.log("FinCurr", finCurr);
         let account = '';
         await web3.eth.getAccounts().then((accounts) => {
-            
+
             account = accounts[0];
-          });
-        
-          if(account === ''){
-              toast.error("Please unlock your wallet to create a bucket");
-              return;
-          }
-          let coins = [];
-          for (let i = 0; i < finCurr.length; i++) {
+        });
+
+        if (account === '') {
+            toast.error("Please unlock your wallet to create a bucket");
+            return;
+        }
+        let coins = [];
+        for (let i = 0; i < finCurr.length; i++) {
             coins.push({
-                'contract' : tokens[finCurr[i].curr].address,
-                'symbol' : finCurr[i].curr,
-                'weight' : finCurr[i].per
+                'contract': tokens[finCurr[i].curr].address,
+                'symbol': finCurr[i].curr,
+                'weight': finCurr[i].per
             })
-            
-          }
+
+        }
 
 
 
@@ -65,10 +65,10 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
             "caseDescription": bucketData.desc,
             "bucketName": bucketData.name,
             "type": bucketData.type
-          }
+        }
 
         const result = await createCaseApi(data);
-        if(result === false) {
+        if (result === false) {
             toast.warn(`Unable to Create Bucket's at the moment`, {
                 position: "top-right",
                 autoClose: 5000,
@@ -77,8 +77,8 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
-              });
-        }else {
+            });
+        } else {
             toast.success(`Bucket Created Successfully`, {
                 position: "top-right",
                 autoClose: 5000,
@@ -122,18 +122,18 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
         finCurr.map((cur) => {
             ans = ans + parseInt(cur.per, 10)
         })
-        if(ans==100){
+        if (ans == 100) {
             setCurrTotalFlag(true);
         }
-        else{
+        else {
             setCurrTotalFlag(false);
         }
         console.log(ans);
     }, [finCurr])
 
     console.log(currTotalFlag, activateButton, finCurr);
-    
-    
+
+
 
     const handleChange = (name, value) => {
         setBucketData({ ...bucketData, [name]: value });
@@ -289,11 +289,13 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
 
                     </div>
                     {activateButton ?
-                        <button className='mt-4 cursor-pointer p-3 text-white rounded-md hov-dark' onClick={() => handleCreateBucket()}>
+                        <button className='mt-4 cursor-pointer p-3 text-white rounded-md hov-dark-green1 ' onClick={() => handleCreateBucket()}>
                             Create
                         </button>
                         :
-                        <button className='mt-4 cursor-pointer p-3 text-white rounded-md deactivate'>
+                        <button
+                            className="mt-4 cursor-pointer p-3 rounded-md deactivate"
+                        >
                             Create
                         </button>
 

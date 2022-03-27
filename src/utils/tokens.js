@@ -4,8 +4,8 @@ export const tokens = {
         'logo' : "https://cryptologos.cc/logos/multi-collateral-dai-dai-logo.svg",
         'address': "0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD"
     },
-    "USDC" : {
-        "symbol" : "USDC",
+    "USDT" : {
+        "symbol" : "USDT",
         'logo': "https://cryptologos.cc/logos/usd-coin-usdc-logo.svg?v=022",
         'address': "0x13512979ADE267AB5100878E2e0f485B568328a4"
     },
