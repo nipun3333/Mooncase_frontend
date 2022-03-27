@@ -27,7 +27,7 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
     const [finCurr, setFinCurr] = useState([]);
     const handleCurr = (curr) => {
         setCurrencies(currencies.filter((currancy) => currancy != curr));
-        setFinCurr([...finCurr, { "curr": curr, per: 0 }]);
+        setFinCurr([...finCurr, { "curr": curr, per: '' }]);
     }
 
     const handleCreateBucket = async () => {

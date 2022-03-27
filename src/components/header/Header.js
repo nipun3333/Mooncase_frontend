@@ -107,7 +107,7 @@ export default function Header() {
             </div>
           </div>
 
-          <div>🚀🌕🚀</div>
+          
 
           <div className="flex gap-8 justify-end">
             <div></div>
