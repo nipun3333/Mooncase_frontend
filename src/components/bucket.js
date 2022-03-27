@@ -71,16 +71,17 @@ export const Bucket = (props) => {
         >
           <div className="flex justify-between gap-10">
             <div className="flex gap-10">
-
-            <div>
-              <img src={image} alt="" width={"160px"} height={"160px"} />
-            </div>
-            <div className="flex flex-col gap-3">
-              <h1 className="text-white text-3xl font-bold">
-                {bucket.bucketName}
-              </h1>
-              <h1 className="text-white text-lg w-3/4">{bucket.caseDescription}</h1>
-            </div>
+              <div>
+                <img src={image} alt="" width={"160px"} height={"160px"} />
+              </div>
+              <div className="flex flex-col gap-3">
+                <h1 className="text-white text-3xl font-bold">
+                  {bucket.bucketName}
+                </h1>
+                <h1 className="text-white text-lg w-3/4">
+                  {bucket.caseDescription}
+                </h1>
+              </div>
             </div>
 
             <div className="">
@@ -138,29 +139,23 @@ export const Bucket = (props) => {
           <div className="flex">
             <div className="flex flex-col gap-5 w-1/2 mt-5">
               <div
-                className="grid grid-cols-3 p-5 rounded-2xl text-center"
+                className="grid grid-cols-2 p-5 rounded-2xl "
                 style={{ color: "#7AC131" }}
               >
-                <div className="font-extrabold text-2xl text-center">
-                  {"Name"}
-                </div>
-                <div className="font-extrabold text-2xl text-center">
-                  {"Price"}
-                </div>
-                <div className="font-extrabold text-2xl text-center">
-                  {"Percentage"}
-                </div>
+                <div className="font-extrabold text-2xl">{"Name"}</div>
+
+                <div className="font-extrabold text-2xl ">{"Percentage"}</div>
               </div>
               {bucket?.coins.map((coin) => {
                 return (
                   <div
-                    className="grid grid-cols-3 p-5 rounded-2xl"
+                    className="grid grid-cols-2 p-5 rounded-2xl"
                     style={{ backgroundColor: "#1D2024" }}
                   >
                     <div>{coin.symbol}</div>
-                    <div className="justify-center flex items-center">
+                    {/* <div className="justify-center flex items-center">
                       {coin.price}
-                    </div>
+                    </div> */}
                     <div>{coin.weight}</div>
                   </div>
                 );
