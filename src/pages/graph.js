@@ -8,6 +8,7 @@ import {
   Tooltip,
   Legend,
   LabelList,
+  ResponsiveContainer,
 } from "recharts";
 
 const data = [
@@ -110,27 +111,32 @@ const CustomizedAxisTick: FunctionComponent<any> = (props: any) => {
 
 export default function GraphComp() {
   return (
-    <LineChart
-      //   width={500}
-      width={1000}
-      height={300}
-      data={data}
-      margin={{
-        top: 20,
-        right: 30,
-        // left: 20,
-        bottom: 10,
-      }}
-    >
-      <CartesianGrid horizontalPoints />
-      <XAxis dataKey="name" height={60} tick={<CustomizedAxisTick />} />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <Line type="monotone" dataKey="NFT" stroke="#7AC231">
-        {/* <LabelList content={<CustomizedLabel />} /> */}
-      </Line>
-      {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
-    </LineChart>
+    <div className="">
+      <ResponsiveContainer width="50%" height={400} position="center">
+        <LineChart
+          //   width={500}
+          width={1000}
+          height={300}
+          data={data}
+          margin={{
+            top: 20,
+            right: 30,
+            left: 0,
+            bottom: 10,
+          }}
+          position="center"
+        >
+          <CartesianGrid horizontalPoints />
+          <XAxis dataKey="name" height={60} tick={<CustomizedAxisTick />} />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="NFT" stroke="#7AC231">
+            {/* <LabelList content={<CustomizedLabel />} /> */}
+          </Line>
+          {/* <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
   );
 }

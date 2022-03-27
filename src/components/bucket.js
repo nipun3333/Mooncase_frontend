@@ -3,17 +3,18 @@ import Layout from "./layout/Layout";
 import image from "./../assets/images/ImportanceofCorporateImage.jpg";
 import GraphComp from "../pages/graph";
 import Piechart from "../pages/piechartGraph";
+import BuyBucketModal from "../pages/buyModal";
 
 export const Bucket = (props) => {
   const [bucket, setBucket] = useState({
     bucketName: "Crypto Bucket",
     smallDesc:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum ",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. of the printing and typesetting industry. ",
     investmentAmount: "728",
   });
   const [tab, setTab] = useState("overview");
   const [coinDetail, setCoinDetail] = useState([]);
-
+  const [openBuyModal, setOpenBuyModal] = useState(false);
   useEffect(() => {
     var l = [];
     for (var i = 0; i < 5; i++) {
@@ -30,37 +31,49 @@ export const Bucket = (props) => {
   return (
     <Layout>
       <div>
+        <div className="">
+          <BuyBucketModal
+            modalstate={openBuyModal}
+            setModalstate={setOpenBuyModal}
+          />
+        </div>
         <div
           className="p-5 company-box rounded-xl"
-          style={{ backgroundColor: "#65656A" }}
+          style={{ backgroundColor: "#2A2B31" }}
         >
-          <div className="flex gap-10">
-            <div>
-              <img src={image} alt="" width={"160px"} height={"160px"} />
-            </div>
-            <div className="flex flex-col gap-3">
-              <h1 className="text-white text-3xl font-bold">
-                {bucket.bucketName}
-              </h1>
-              <h1 className="text-white text-lg w-3/4">{bucket.smallDesc}</h1>
-            </div>
-          </div>
-
-          <div className="mt-10">
-            <div className="w-1/6">
-              <div className="flex flex-col gap-2">
-                <p>Amount for investment</p>
-                <p className="text-xl font-semibold">
-                  ₹ {bucket.investmentAmount}
-                </p>
+          <div className="flex justify-between">
+            <div className="flex gap-8">
+              <div className="w-3/12">
+                <img src={image} alt="" style={{ maxHeight: "200px" }} />
               </div>
-              <div className="mt-4 flex gap-5">
-                <button className="cursor-pointer text-xl p-2 rounded-md hov-dark-green2 w-full">
-                  Invest
-                </button>
-                <button className="cursor-pointer text-xl p-2 rounded-md hov-dark-green2 w-full">
-                  Withdraw
-                </button>
+              <div className="flex flex-col gap-3 mr-3 w-9/12">
+                <h1 className="text-white text-3xl font-bold">
+                  {bucket.bucketName}
+                </h1>
+                <h1 className=" text-lg " style={{ color: "#4C4D55" }}>
+                  {bucket.smallDesc}
+                </h1>
+              </div>
+            </div>
+
+            <div className="">
+              <div>
+                <div className=" flex gap-5">
+                  <button
+                    className="cursor-pointer text-xl p-2 rounded-md hov-dark-green2 w-full"
+                    style={{ backgroundColor: "#7AC131" }}
+                    onClick={() => setOpenBuyModal(!openBuyModal)}
+                  >
+                    Invest
+                  </button>
+                  <button
+                    className="cursor-pointer text-xl p-2 rounded-md hov-dark-green2 w-full"
+                    style={{ backgroundColor: "#7AC131" }}
+                  >
+                    Withdraw
+                  </button>
+                </div>
+                <div className="mt-5 flex flex-col gap-2 "></div>
               </div>
             </div>
           </div>
@@ -98,24 +111,34 @@ export const Bucket = (props) => {
           <div className="flex">
             <div className="flex flex-col gap-5 w-1/2 mt-5">
               <div
-                className="flex justify-between p-5 rounded-2xl"
-                style={{ backgroundColor: "#2A2B31", color: "#7AC131" }}
+                className="grid grid-cols-3 p-5 rounded-2xl text-center"
+                style={{ color: "#7AC131" }}
               >
-                <div>{"Name"}</div>
-                <div>{"price"}</div>
-                <div>{"percentage"}</div>
+                <div className="font-extrabold text-2xl text-center">
+                  {"Name"}
+                </div>
+                <div className="font-extrabold text-2xl text-center">
+                  {"Price"}
+                </div>
+                <div className="font-extrabold text-2xl text-center">
+                  {"Percentage"}
+                </div>
               </div>
               {coinDetail.map((coin) => {
                 return (
                   <div
-                    className="flex justify-between p-5 rounded-2xl"
-                    style={{ backgroundColor: "#2A2B31", color: "#7AC131" }}
+                    className="grid grid-cols-3 p-5 rounded-2xl"
+                    style={{ backgroundColor: "#2A2B31" }}
                   >
-                    <div>{coin.name}</div>
-                    <div className="justify-center flex items-center">
+                    <div className="text-center" style={{ color: "#FFFFFF" }}>
+                      {coin.name}
+                    </div>
+                    <div className="text-center" style={{ color: "#7AC231" }}>
                       {coin.price}
                     </div>
-                    <div>{coin.percentage}</div>
+                    <div className="text-center" style={{ color: "#FFFFFF" }}>
+                      {coin.percentage}
+                    </div>
                   </div>
                 );
               })}

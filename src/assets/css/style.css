@@ -13,7 +13,7 @@
 }
 
 body {
-  background: #18191D;
+  background: #18191d;
   color: white;
   font-family: Lato;
 }
@@ -174,25 +174,29 @@ body {
   }
 }
 .hov-dark-pur {
-  border: #bb86fc solid 1px;
-  background-color: #bb86fc;
-  color: black;
+  border: #017374 solid 1px;
+  background-color: #017374;
+  color: white;
+  padding: 14px 25px;
+  border-radius: 17px;
 }
 
 .hov-dark-pur:hover {
-  border: #bb86fc solid 1px;
+  border: #017374 solid 1px;
   background-color: transparent;
   color: white;
 }
 
 .hov-dark-green1 {
-  border: #03dac5 solid 1px;
-  background-color: #03dac5;
-  color: black;
+  border: #017374 solid 1px;
+  background-color: #017374;
+  color: white;
+  padding: 14px 25px;
+  border-radius: 17px;
 }
 
 .hov-dark-green1:hover {
-  border: #03dac5 solid 1px;
+  border: #017374 solid 1px;
   background-color: transparent;
   color: white;
 }
@@ -205,6 +209,8 @@ body {
   border: #017374 solid 1px;
   background-color: #017374;
   color: white;
+  padding: 14px 25px;
+  border-radius: 17px;
 }
 
 .hov-dark-green2:hover {
@@ -213,10 +219,10 @@ body {
   color: white;
 }
 
-.bucket-box{
-  background-color: #1D2024;
+.bucket-box {
+  background-color: #1d2024;
 }
 
-.bucket-card{
-  background-color: #1D2024;
+.bucket-card {
+  background-color: #1d2024;
 }

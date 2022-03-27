@@ -91,21 +91,33 @@ export default function Header() {
   return (
     <>
       <div className="ml-auto">
-        <div className="flex gap-8 justify-end">
-          <div>
-            <button
-              className="cursor-pointer p-3 rounded-md hov-dark-pur"
+        <div className="flex justify-between items-center">
+          <div className="flex items-center gap-5">
+            <div
+              className="py-auto cursor-pointer"
+              onClick={() => navigate("/")}
+            >
+              Moon Case
+            </div>
+            <div
+              className="cursor-pointer p-3 "
               onClick={() => navigate("/bucketlist")}
             >
               Bucket list
+            </div>
+          </div>
+
+          <div>🚀🌕🚀</div>
+
+          <div className="flex gap-8 justify-end">
+            <div></div>
+            <button
+              className="cursor-pointer p-3 rounded-md hov-dark-green1 bg-red-600"
+              onClick={() => HandleConnect()}
+            >
+              Connect
             </button>
           </div>
-          <button
-            className="cursor-pointer p-3 rounded-md hov-dark-green1"
-            onClick={() => HandleConnect()}
-          >
-            Connect
-          </button>
         </div>
       </div>
     </>
