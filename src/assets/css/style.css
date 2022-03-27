@@ -184,7 +184,6 @@ body {
 .hov-dark-pur:hover {
   border: #017374 solid 1px;
   background-color: transparent;
-  color: white;
 }
 
 .hov-dark-green1 {
@@ -198,7 +197,6 @@ body {
 .hov-dark-green1:hover {
   border: #017374 solid 1px;
   background-color: transparent;
-  color: white;
 }
 
 .company-box {
@@ -225,4 +223,20 @@ body {
 
 .bucket-card {
   background-color: #1d2024;
+}
+
+.hoverSelectOption:hover {
+  color: white;
+  background: #2a2b31;
+  border-radius: 6px;
+}
+/* 
+.dropdown-menu{
+  position: fixed;
+
+} */
+
+.deactivate {
+  background-color: rgba(122, 194, 49, 0.2);
+  color: rgba(0, 0, 0, 0.5);
 }
