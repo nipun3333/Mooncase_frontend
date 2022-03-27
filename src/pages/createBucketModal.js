@@ -14,7 +14,7 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
 
     const [currencyDropDown, setCurrencyDropDown] = useState(false);
     const [currencies, setCurrencies] = useState([
-        "DAI", "USDC"
+        "DAI", "USDT"
     ])
     const [currTotalFlag, setCurrTotalFlag] = useState(false);
     const [checkSum, setCheckSum] = useState(0);
@@ -289,7 +289,7 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
 
                     </div>
                     {activateButton ?
-                        <button className='mt-4 cursor-pointer p-3 text-white rounded-md hov-dark'>
+                        <button className='mt-4 cursor-pointer p-3 text-white rounded-md hov-dark' onClick={() => handleCreateBucket()}>
                             Create
                         </button>
                         :
