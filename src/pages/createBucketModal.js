@@ -7,10 +7,13 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
     const [currencies, setCurrencies] = useState([
         "C1", "C2", "C3", "C4"
     ])
+    const [checkSum, setCheckSum] = useState(0);
+    const [activateButton, setActivateButton] = useState(false);
     const [bucketData, setBucketData] = useState({
         name: "",
-        desc:"",
-        type:""
+        desc: "",
+        type: "",
+        image: "",
     })
     const [finCurr, setFinCurr] = useState([]);
     const handleCurr = (curr) => {
@@ -19,26 +22,41 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
     }
 
     const handlePerChange = (curr, val) => {
-        var count = 0;
         setFinCurr(finCurr.map((cur) => {
             if (cur.curr === curr) {
+                if(val==""){
+                    // setCheckSum(parseInt(checkSum, 10)-parseInt(cur.per,10));
+                    // return cur
+                }
+                else{
+                    console.log(checkSum,val,parseInt(checkSum,10),parseInt(val,10));
+                    setCheckSum(parseInt(checkSum, 10)-parseInt(cur.per,10)+parseInt(val, 10));
+                }
                 return { "curr": curr, per: val };
             }
             else {
                 return cur;
             }
         }))
-        console.log(curr, val);
     }
-
     useEffect(() => {
-
-    }, [finCurr])
+        if (
+            bucketData.name != "" &&
+            bucketData.desc != "" &&
+            bucketData.type != "" &&
+            bucketData.image != ""
+        ) {
+            setActivateButton(true);
+        } else {
+            setActivateButton(false);
+        }
+    }, [bucketData]);
+    
 
     const handleChange = (name, value) => {
         setBucketData({ ...bucketData, [name]: value });
     }
-    console.log(bucketData);
+    console.log(bucketData, checkSum);
 
     return (
         <ModalLayout modalstate={modalstate} setModalstate={setModalstate}>
@@ -61,32 +79,32 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
                             <div>
                                 <h1 className='text-xl mb-2'>Bucket Name</h1>
                             </div>
-                            <input 
-                            type="text" 
-                            value={bucketData.name} 
-                            className='w-full p-3 outline-none bg-transparent rounded-lg'
-                            style={{border: "1px solid #7AC231"}}
-                            name="name" 
-                            onChange={(e) => handleChange("name", e.target.value)} 
-                            placeholder='Bucket name'
+                            <input
+                                type="text"
+                                value={bucketData.name}
+                                className='w-full p-3 outline-none bg-transparent rounded-lg'
+                                style={{ border: "1px solid #7AC231" }}
+                                name="name"
+                                onChange={(e) => handleChange("name", e.target.value)}
+                                placeholder='Bucket name'
 
-                        />
+                            />
                         </div>
 
                         <div>
                             <div>
                                 <h1 className='text-xl mb-2 mt-4'>Description</h1>
                             </div>
-                            <textarea 
-                            type="text" 
-                            value={bucketData.desc} 
-                            className='w-full p-3 outline-none bg-transparent rounded-lg'
-                            style={{border: "1px solid #7AC231"}}
-                            name="description" 
-                            onChange={(e) => handleChange("desc", e.target.value)} 
-                            placeholder='Bucket name'
+                            <textarea
+                                type="text"
+                                value={bucketData.desc}
+                                className='w-full p-3 outline-none bg-transparent rounded-lg'
+                                style={{ border: "1px solid #7AC231" }}
+                                name="description"
+                                onChange={(e) => handleChange("desc", e.target.value)}
+                                placeholder='Bucket name'
 
-                        />
+                            />
                         </div>
 
 
@@ -94,28 +112,29 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
                             <div>
                                 <h1 className='text-xl mb-2 mt-4'>Type</h1>
                             </div>
-                            <input 
-                            type="text" 
-                            value={bucketData.type} 
-                            className='w-full p-3 outline-none bg-transparent rounded-lg'
-                            style={{border: "1px solid #7AC231"}}
-                            name="type" 
-                            onChange={(e) => handleChange("type", e.target.value)} 
-                            placeholder='Bucket name'
+                            <input
+                                type="text"
+                                value={bucketData.type}
+                                className='w-full p-3 outline-none bg-transparent rounded-lg'
+                                style={{ border: "1px solid #7AC231" }}
+                                name="type"
+                                onChange={(e) => handleChange("type", e.target.value)}
+                                placeholder='Bucket name'
 
-                        />
-                        </div>
-
-                        <div>
-                        <div>
-                                <h1 className='text-xl mb-2 mt-4'>Image</h1>
-                            </div>
-                            <input 
-                                type="file" 
-                                
                             />
                         </div>
-                        
+
+                        <div>
+                            <div>
+                                <h1 className='text-xl mb-2 mt-4'>Image</h1>
+                            </div>
+                            <input
+                                type="file"
+                                className='bg-transparent'
+                                onChange={(e) => handleChange("image", e.target.value)}
+                            />
+                        </div>
+
 
 
                         <div className="mt-7 " onMouseLeave={() => setCurrencyDropDown(false)}>
@@ -163,24 +182,40 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
                         </div>
 
                         <div>
-                            <div>
+                            <div className='mt-6'>
                                 {finCurr.map((cur) => {
                                     return (
-                                        <>
-                                            <div>
+                                        <div>
+                                            <div className='flex justify-between items-center mt-3'>
                                                 <p>{cur.curr}</p>
-                                                <input className='text-black' type="Number" max={50} value={cur.per} onChange={(e) => handlePerChange(cur.curr, e.target.value)} />
+                                                <input
+                                                    type="Number"
+                                                    value={cur.per}
+                                                    className='w-1/2 p-3 outline-none bg-transparent rounded-lg text-white'
+                                                    style={{ border: "1px solid #7AC231" }}
+                                                    name={cur.curr}
+                                                    min={0}
+                                                    onChange={(e) => handlePerChange(cur.curr, e.target.value)}
+
+                                                />
                                             </div>
-                                        </>
+                                        </div>
                                     )
                                 })}
                             </div>
                         </div>
 
                     </div>
-                    <button className='mt-4 cursor-pointer p-3 text-white rounded-md hov-dark'>
-                        Create
-                    </button>
+                    {activateButton ?
+                        <button className='mt-4 cursor-pointer p-3 text-white rounded-md hov-dark'>
+                            Create
+                        </button>
+                        :
+                        <button className='mt-4 cursor-pointer p-3 text-white rounded-md deactivate'>
+                            Create
+                        </button>
+
+                    }
                 </div>
                 <div>
                 </div>
