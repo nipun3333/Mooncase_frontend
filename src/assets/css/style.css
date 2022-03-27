@@ -204,15 +204,15 @@ body {
 }
 
 .hov-dark-green2 {
-  border: #017374 solid 1px;
-  background-color: #017374;
-  color: white;
-  padding: 14px 25px;
-  border-radius: 17px;
+  border: #7ac131 solid 1px;
+  background-color: #7ac131;
+  color: black;
+  padding: 8px 16px;
+  border-radius: 16px;
 }
 
 .hov-dark-green2:hover {
-  border: #017374 solid 1px;
+  border: #7ac131 solid 1px;
   background-color: transparent;
   color: white;
 }
@@ -227,7 +227,7 @@ body {
 
 .hoverSelectOption:hover {
   color: white;
-  background: #2a2b31;
+  background: #1d2024;
   border-radius: 6px;
 }
 /* 
@@ -237,8 +237,10 @@ body {
 } */
 
 .deactivate {
-  background-color: rgba(122, 194, 49, 0.2);
+  background-color: rgba(1, 115, 116, 0.2);
   color: rgba(0, 0, 0, 0.5);
+  padding: 14px 25px;
+  border-radius: 17px;
 }
 .activeNav {
   color: red;
@@ -248,4 +250,10 @@ body {
   border-radius: 15px;
   background-color: black;
   color: white;
+}
+
+.green-button:hover {
+  border: #7ac131 solid 1px;
+  background-color: #7ac131;
+  color: black;
 }

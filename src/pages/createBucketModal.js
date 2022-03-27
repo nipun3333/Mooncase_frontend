@@ -25,7 +25,7 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
   const [finCurr, setFinCurr] = useState([]);
   const handleCurr = (curr) => {
     setCurrencies(currencies.filter((currancy) => currancy != curr));
-    setFinCurr([...finCurr, { curr: curr, per: 0 }]);
+    setFinCurr([...finCurr, { curr: curr, per: "" }]);
   };
 
   const handleCreateBucket = async () => {
@@ -71,7 +71,6 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
         progress: undefined,
       });
     } else {
-      window.location.reload();
       toast.success(`Bucket Created Successfully`, {
         position: "top-right",
         autoClose: 5000,
@@ -279,13 +278,13 @@ export default function CreateBucketModal({ modalstate, setModalstate }) {
           </div>
           {activateButton ? (
             <button
-              className="mt-4 cursor-pointer p-3 text-white rounded-md hov-dark"
+              className="mt-4 cursor-pointer p-3 text-white rounded-md hov-dark-green1 "
               onClick={() => handleCreateBucket()}
             >
               Create
             </button>
           ) : (
-            <button className="mt-4 cursor-pointer p-3 text-white rounded-md deactivate">
+            <button className="mt-4 cursor-pointer p-3 rounded-md deactivate">
               Create
             </button>
           )}

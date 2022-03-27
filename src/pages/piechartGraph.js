@@ -2,10 +2,10 @@ import React, { useCallback, useState } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 
 const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 },
+  { name: "DAI", value: 100 },
+  // { name: "LUNA", value: 300 },
+  // { name: "UNI", value: 300 },
+  // { name: "MANA", value: 200 },
 ];
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
