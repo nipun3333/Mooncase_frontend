@@ -5,12 +5,14 @@ import GraphComp from "../pages/graph";
 import Piechart from "../pages/piechartGraph";
 import useWeb3 from "../utils/useWeb3";
 import { getCaseDetailsApi } from "../api/CaseDetailsApi";
+import { useParams } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 export const Bucket = (props) => {
-
   const web3 = useWeb3();
 
   // Use Params
+  let { id } = useParams();
 
   const [bucket, setBucket] = useState({
     bucketName: "Crypto Bucket",
@@ -22,8 +24,22 @@ export const Bucket = (props) => {
   const [coinDetail, setCoinDetail] = useState([]);
 
   const fetchCaseDetails = async () => {
-    const result = await getCaseDetailsApi()
-  }
+    const result = await getCaseDetailsApi(id);
+    if (result === false) {
+      toast.warn(`Unable to fetch Bucket's details`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }else {
+      console.log(result.data.arr);
+      setBucket(result?.data?.arr);
+    }
+  };
 
   useEffect(() => {
     // var l = [];
@@ -54,7 +70,7 @@ export const Bucket = (props) => {
               <h1 className="text-white text-3xl font-bold">
                 {bucket.bucketName}
               </h1>
-              <h1 className="text-white text-lg w-3/4">{bucket.smallDesc}</h1>
+              <h1 className="text-white text-lg w-3/4">{bucket.caseDescription}</h1>
             </div>
           </div>
 
@@ -117,17 +133,17 @@ export const Bucket = (props) => {
                 <div>{"price"}</div>
                 <div>{"percentage"}</div>
               </div>
-              {coinDetail.map((coin) => {
+              {bucket?.coins.map((coin) => {
                 return (
                   <div
                     className="flex justify-between p-5 rounded-2xl"
                     style={{ backgroundColor: "#2A2B31", color: "#7AC131" }}
                   >
-                    <div>{coin.name}</div>
+                    <div>{coin.symbol}</div>
                     <div className="justify-center flex items-center">
                       {coin.price}
                     </div>
-                    <div>{coin.percentage}</div>
+                    <div>{coin.weight}</div>
                   </div>
                 );
               })}
@@ -140,6 +156,7 @@ export const Bucket = (props) => {
           </div>
         )}
       </div>
+      <ToastContainer toastStyle={{ backgroundColor: "#000" }} />
     </Layout>
   );
 };
